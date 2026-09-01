@@ -1,4 +1,5 @@
 import Image from "next/image";
+import NowPlaying from "@/components/NowPlaying";
 
 export default function Home() {
   return (
@@ -11,14 +12,26 @@ export default function Home() {
             </div>
 
             <div className="profile-panel__body">
-              <Image
-                className="profile-panel__image"
-                src="/images/avatar/navyri-profile.png"
-                alt="Navyri's VTuber avatar"
-                width={520}
-                height={520}
-                priority
-              />
+              <div className="home-profile-archive">
+                <Image
+                  className="profile-panel__image home-profile-archive__image"
+                  src="/images/avatar/navyri-profile.png"
+                  alt="Navyri's VTuber avatar"
+                  width={520}
+                  height={520}
+                  priority
+                />
+
+                <span className="home-profile-archive__code">
+                  PROFILE ARCHIVE / 00
+                </span>
+
+                <span className="home-profile-archive__title">
+                  Navyri portrait
+                </span>
+
+                <span className="home-profile-archive__ratio">square</span>
+              </div>
 
               <h2 className="profile-panel__name">Navyri</h2>
 
@@ -93,46 +106,29 @@ export default function Home() {
 
             <div className="panel-body">
               <p>
-                Hi, I&apos;m <strong>Navyri</strong> — a Colombian YouTuber,
-                VTuber, illustrator, and systems and computing engineering
+                Hi, I&apos;m <strong>Navyri</strong> — a Colombian VTuber,
+                self-taught illustrator, collector, and systems and computing engineering
                 student.
               </p>
 
               <p>
-                I have been drawing for as long as I can remember. I mainly
-                create anime and chibi-inspired artwork, especially{" "}
-                <strong>emotes</strong>, <strong>badges</strong>, profile
-                pictures, banners, and other custom assets for creators and
-                their communities. I do not limit myself to one specific art
-                style; I enjoy learning, experimenting, and adapting each piece
-                to the personality behind it.
+                I make anime and chibi-inspired art for creators and communities, love
+                building things with code and hardware, and keep a small personal archive
+                of games, collectibles, handmade projects, and everything that inspires me.
               </p>
 
               <p>
-                Outside of art, I&apos;m deeply into <strong>technology</strong>,
-                programming, hardware, and making things with my own hands. I
-                enjoy building creative projects, working with code, editing my
-                own videos, and turning small ideas into something real —
-                whether that means a digital asset, a handmade accessory, or a
-                new project to learn from.
+                This site is my little corner of the internet: a place for commissions,
+                projects, collection updates, handmade creations, and things I enjoy
+                sharing.
               </p>
 
               <p>
-                I&apos;m also a collector at heart. My collection began with the
-                toys I grew up with and carefully kept throughout the years.
-                What started as something personal slowly became a special
-                collection focused on <strong>Generation 4 My Little Pony</strong>,
-                <strong> Generation 1 Monster High</strong>, and My Little Pony
-                trading cards. I organize part of it in Notion, where I also
-                keep track of my wishlist and collecting goals.
-              </p>
-
-              <p>
-                When I&apos;m not drawing or studying, I&apos;m probably watching
-                anime, trying to get better at a game, working on a craft, or
-                enjoying Italian food. This site is my little corner of the
-                internet: a place for commissions, projects, collectibles,
-                handmade creations, and everything I enjoy sharing.
+                Want to know more? Visit my{" "}
+                <a className="mini-panel__link" href="/about">
+                  personal archive / about page
+                </a>
+                .
               </p>
             </div>
           </section>
@@ -305,14 +301,6 @@ export default function Home() {
               <p>G1 Monster High</p>
               <p>MLP trading cards</p>
 
-              <a
-                className="mini-panel__link"
-                href="https://mary-collectors.notion.site/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                View collection &amp; wishlist
-              </a>
             </div>
           </section>
 
@@ -322,8 +310,7 @@ export default function Home() {
             </div>
 
             <div className="mini-panel__body">
-              <p className="mini-panel__highlight">Listening</p>
-              <p>Now playing integration coming soon.</p>
+              <NowPlaying />
 
               <a
                 className="mini-panel__link"

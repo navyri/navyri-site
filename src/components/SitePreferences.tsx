@@ -5,24 +5,38 @@ import { useEffect, useState } from "react";
 type Theme = "dark" | "light";
 type Locale = "en" | "es";
 
+const DEFAULT_THEME: Theme = "dark";
+const DEFAULT_LOCALE: Locale = "en";
+
+function getStoredTheme(): Theme {
+    const storedTheme = window.localStorage.getItem("navyri-theme");
+
+    return storedTheme === "light" || storedTheme === "dark"
+        ? storedTheme
+        : DEFAULT_THEME;
+}
+
+function getStoredLocale(): Locale {
+    const storedLocale = window.localStorage.getItem("navyri-locale");
+
+    return storedLocale === "en" || storedLocale === "es"
+        ? storedLocale
+        : DEFAULT_LOCALE;
+}
+
 export default function SitePreferences() {
-    const [theme, setTheme] = useState<Theme>("dark");
-    const [locale, setLocale] = useState<Locale>("en");
+    const [theme, setTheme] = useState<Theme>(DEFAULT_THEME);
+    const [locale, setLocale] = useState<Locale>(DEFAULT_LOCALE);
 
     useEffect(() => {
-        const storedTheme = window.localStorage.getItem("navyri-theme");
-        const storedLocale = window.localStorage.getItem("navyri-locale");
+        const savedTheme = getStoredTheme();
+        const savedLocale = getStoredLocale();
 
-        if (storedTheme === "light" || storedTheme === "dark") {
-            setTheme(storedTheme);
-            document.documentElement.dataset.theme = storedTheme;
-        } else {
-            document.documentElement.dataset.theme = "dark";
-        }
-
-        if (storedLocale === "en" || storedLocale === "es") {
-            setLocale(storedLocale);
-        }
+        queueMicrotask(() => {
+            setTheme(savedTheme);
+            setLocale(savedLocale);
+            document.documentElement.dataset.theme = savedTheme;
+        });
     }, []);
 
     function changeTheme(nextTheme: Theme) {
@@ -72,7 +86,9 @@ export default function SitePreferences() {
                 aria-label={
                     theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
                 }
-                title={theme === "dark" ? "Switch to light theme" : "Switch to dark theme"}
+                title={
+                    theme === "dark" ? "Switch to light theme" : "Switch to dark theme"
+                }
             >
                 <span
                     className={`theme-switch__track theme-switch__track--${theme}`}

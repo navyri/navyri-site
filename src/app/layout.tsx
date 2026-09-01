@@ -51,8 +51,17 @@ export default function RootLayout({
             <div className="site-content">{children}</div>
 
             <footer className="site-footer">
-              <span>© {new Date().getFullYear()} Navyri</span>
-              <span>Made with care in Colombia</span>
+              <div className="site-footer__identity">
+                <span className="site-footer__title">NAVYRI&apos;S PERSONAL ARCHIVE </span>
+                <span className="site-footer__subtitle">
+                  · keep creating, keep collecting
+                </span>
+              </div>
+
+              <div className="site-footer__signal">
+                <span>TRANSMISSION LOG: ONLINE</span>
+                <span> © {new Date().getFullYear()} Navyri</span>
+              </div>
             </footer>
           </div>
         </div>
