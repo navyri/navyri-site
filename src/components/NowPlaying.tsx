@@ -82,7 +82,7 @@ export default function NowPlaying() {
     }, []);
 
     const isOffline = !isLoading && !errorMessage && !track.isTrack;
-    const hasTrack = track.isTrack && !errorMessage;
+    const hasTrack = track.isTrack && !errorMessage; 
 
     const statusText = isLoading
         ? "checking signal..."
