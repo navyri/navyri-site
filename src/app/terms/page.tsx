@@ -96,6 +96,19 @@ export default function TermsPage() {
                                 may require an additional fee.
                             </li>
                             <li>
+                                Clients are responsible for providing clear references and
+                                accurate commission details before work begins. References may
+                                include visual examples, character details, poses, colors,
+                                written descriptions, or other relevant information. By
+                                submitting references or assets, the client confirms that they
+                                have permission to use them for the commission.
+                            </li>
+                            <li>
+                                Major changes to the original request, including a new
+                                character, pose, concept, or commission type, may require a new
+                                quote, an additional fee, or a new commission slot.
+                            </li>
+                            <li>
                                 Confidentiality must be requested and agreed upon before work
                                 begins.
                             </li>
@@ -104,6 +117,11 @@ export default function TermsPage() {
                                 starts, Navyri may share the artwork or process for portfolio,
                                 social media, promotional, or streaming purposes, including
                                 Twitch streams.
+                            </li>
+                            <li>
+                                If a client is unavailable during the process, the commission
+                                may be paused until the required feedback or information is
+                                received. Delivery estimates may be adjusted accordingly.
                             </li>
                         </ul>
                     </div>
@@ -170,11 +188,19 @@ export default function TermsPage() {
                                 additional fee based on the request complexity and available
                                 turnaround time.
                             </li>
+                            <li>
+                                Any delivery date or turnaround estimate is provided in good
+                                faith and may change if the scope changes, the client delays
+                                feedback, unexpected circumstances arise, or academic
+                                responsibilities affect availability.
+                            </li>
                         </ul>
+
                         <br />
+
                         <p className="terms-section__supporting-note">
                             Questions about payment fees or the amount due should be resolved
-                            before payment is sent. 
+                            before payment is sent.
                             <br />
                             For PayPal fee information, you can review{" "}
                             <a
@@ -217,6 +243,13 @@ export default function TermsPage() {
                             <li>
                                 Commercial use requires an additional fee of at least 50% of
                                 the base commission price.
+                            </li>
+                            <li>
+                                Source files, editable files, layered files, and working files
+                                are not included by default. They are only available when
+                                explicitly agreed upon before work begins and require an
+                                additional fee of at least 50% of the base commission price.
+                                Availability depends on the commission type and file format.
                             </li>
                             <li>
                                 Please provide visible credit and a link to Navyri when using
