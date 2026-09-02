@@ -21,7 +21,7 @@ const favoriteGames = [
 ];
 
 const wantToPlayGames = [
-    "Bayoneta",
+    "Bayonetta",
     "Lies of P",
     "Devil May Cry 5",
     "NieR:Automata™",
@@ -667,7 +667,12 @@ export default function AboutPage() {
             <section className="content-panel about-section about-links-panel">
                 <div className="panel-titlebar">
                     <span>~ SIGNALS / FIND ME ~</span>
-                    <span>stay in touch</span>
+                    <span>directory / stay in touch</span>
+                </div>
+
+                <div className="about-links-panel__intro">
+                    <span>OUTGOING SIGNALS</span>
+                    <p>creator spaces, community links, archives, and support channels.</p>
                 </div>
 
                 <div className="about-links-panel__body">

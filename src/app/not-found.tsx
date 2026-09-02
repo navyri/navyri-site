@@ -22,18 +22,42 @@ export default function NotFoundPage() {
                         </p>
                     </div>
 
-                    <Image
-                        className="not-found-panel__gif"
-                        src="/images/404/starlight-walk.gif"
-                        alt="Starlight Glimmer walking"
-                        width={288}
-                        height={200}
-                        unoptimized
-                        priority
-                    />
+                    <div className="not-found-panel__glitch">
+                        <Image
+                            className="not-found-panel__gif not-found-panel__gif--base"
+                            src="/images/404/navy-404.png"
+                            alt="navy 404"
+                            width={300}
+                            height={300}
+                            unoptimized
+                            priority
+                        />
+
+                        <Image
+                            className="not-found-panel__gif not-found-panel__gif--ghost not-found-panel__gif--ghost-a"
+                            src="/images/404/navy-404.png"
+                            alt=""
+                            width={300}
+                            height={300}
+                            unoptimized
+                            aria-hidden="true"
+                        />
+
+                        <Image
+                            className="not-found-panel__gif not-found-panel__gif--ghost not-found-panel__gif--ghost-b"
+                            src="/images/404/navy-404.png"
+                            alt=""
+                            width={300}
+                            height={300}
+                            unoptimized
+                            aria-hidden="true"
+                        />
+                    </div>
 
                     <p className="not-found-panel__hint">
-                        Some sections are still under construction. Come back soon.
+                        Some sections are still under construction.
+                        <br />
+                        Come back soon.
                     </p>
 
                     <div className="not-found-panel__actions">
