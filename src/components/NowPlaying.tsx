@@ -81,6 +81,9 @@ export default function NowPlaying() {
         };
     }, []);
 
+    const isOffline = !isLoading && !errorMessage && !track.isTrack;
+    const hasTrack = track.isTrack && !errorMessage;
+
     const statusText = isLoading
         ? "checking signal..."
         : errorMessage
@@ -89,26 +92,29 @@ export default function NowPlaying() {
                 ? "listening now"
                 : track.isTrack
                     ? "paused"
-                    : "offline";
+                    : "standby mode";
 
     const trackTitle = isLoading
         ? "Loading music..."
         : errorMessage
             ? "Could not load Spotify"
-            : track.isTrack
+            : hasTrack
                 ? track.title
-                : "Nothing playing right now";
+                : "No transmission detected";
 
     const artistText = isLoading
         ? "Connecting to Spotify..."
         : errorMessage
-            ? errorMessage
-            : track.isTrack
+            ? "Spotify could not be reached"
+            : hasTrack
                 ? `${track.artist}${track.album ? ` · ${track.album}` : ""}`
-                : "Come back when music is playing";
+                : "The next track will appear here";
 
     const player = (
-        <div className="spotify-now-playing">
+        <div
+            className={`spotify-now-playing ${isOffline ? "spotify-now-playing--offline" : ""
+                } ${errorMessage ? "spotify-now-playing--error" : ""}`}
+        >
             <div
                 className={`spotify-now-playing__vinyl ${track.isPlaying ? "spotify-now-playing__vinyl--spinning" : ""
                     }`}
@@ -134,8 +140,8 @@ export default function NowPlaying() {
                 <span className="now-playing-panel__status">
                     <span
                         className={`now-playing-panel__dot ${track.isPlaying && !errorMessage
-                                ? "now-playing-panel__dot--active"
-                                : ""
+                            ? "now-playing-panel__dot--active"
+                            : ""
                             }`}
                         aria-hidden="true"
                     />

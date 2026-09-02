@@ -1,30 +1,57 @@
 import Link from "next/link";
 import Image from "next/image";
 import NowPlaying from "@/components/NowPlaying";
+import SpotifyPlaylistEmbed from "@/components/SpotifyPlaylistEmbed";
 
 const favoriteGames = [
     "Fatal Frame",
     "Valorant",
-    "Elden Ring",
     "Elden Ring Nightreign",
-    "Dark Souls",
     "Alice: Madness Returns",
     "Silent Hill f",
     "Dead by Daylight",
-    "Resident Evil",
-    "Lies of P",
+    "Identity V",
     "Warframe",
     "Arknights: Endfield",
     "Minecraft",
     "Fortnite",
+    "Stardew Valley",
+    "The Coffin of Andy and Leyley",
+    "Sims 4"
 ];
 
-const gameWishlist = [
+const wantToPlayGames = [
+    "Bayoneta",
+    "Lies of P",
+    "Devil May Cry 5",
+    "NieR:Automata™",
+    "Elden Ring",
+    "Tomb Raider Series",
     "Tormented Souls",
     "Resident Evil series",
     "Final Fantasy",
-    "Dark Souls II",
-    "Dark Souls III",
+    "Dark Souls franchise",
+    "Catherine Classic",
+    "Gris",
+    "Horizon Zero Dawn™",
+    "Omori",
+    "Lost Ruins",
+    "Shady Part of Me",
+    "Sekiro™: Shadows Die Twice",
+];
+
+const gameWishlist = [
+    "Final Fantasy VII Rebirth",
+    "The Last of Us™ Part I",
+    "Clair Obscur: Expedition 33",
+    "Mudborne: Frog Management Sim",
+    "Doloc Town",
+    "Fields of Mistria",
+    "Celeste",
+    "Neverway",
+    "NEEDY STREAMER OVERLOAD",
+    "SILENT HILL 2",
+
 ];
 
 const favoriteAnime = [
@@ -297,6 +324,8 @@ export default function AboutPage() {
                                 sizes="(max-width: 680px) 45vw, (max-width: 920px) 30vw, 14vw"
                             />
 
+                            <span className="about-secondary-portrait__texture" aria-hidden="true" />
+
                             <span className="about-secondary-portrait__code">
                                 AVATAR FILE / 02
                             </span>
@@ -377,8 +406,8 @@ export default function AboutPage() {
                             CTL-480.
                         </p>
 
-                        <Link className="retro-underline about-section__link" href="/commissions">
-                            explore commissions
+                        <Link className="archive-action-link" href="/commissions">
+                            explore commissions <span aria-hidden="true">↗</span>
                         </Link>
                     </div>
                 </section>
@@ -408,12 +437,12 @@ export default function AboutPage() {
                         </p>
 
                         <a
-                            className="retro-underline about-section__link"
+                            className="archive-action-link"
                             href="https://mary-collectors.notion.site/"
                             target="_blank"
                             rel="noreferrer"
                         >
-                            view collection &amp; wishlist archive
+                            view collection &amp; wishlist archive <span aria-hidden="true">↗</span>
                         </a>
                     </div>
                 </section>
@@ -454,21 +483,30 @@ export default function AboutPage() {
                     ratio="game"
                 />
 
-                <section className="content-panel about-section">
+                <section className="content-panel about-section about-game-section__panel">
                     <div className="panel-titlebar">
-                        <span>~ GAME FILE ~</span>
-                        <span>press start</span>
+                        <span>~ GAME ARCHIVE ~</span>
+
+                        <a
+                            className="about-game-section__steam-link"
+                            href="https://steamcommunity.com/id/1tsNavy/"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            Steam library <span aria-hidden="true">↗</span>
+                        </a>
                     </div>
 
                     <div className="about-section__body">
                         <p>
                             I love horror, psychological stories, soulslikes, co-op games, and
-                            games that let me disappear into a strange world for a while.
+                            strange worlds that are easy to get lost in for a while.
                         </p>
 
                         <div className="about-subsection">
-                            <p className="about-panel__label">
-                                favorites / frequently played
+                            <p className="about-panel__label">games I like</p>
+                            <p className="about-game-section__note">
+                                games I have played and keep close to my heart.
                             </p>
 
                             <div className="about-tags about-tags--games">
@@ -479,7 +517,29 @@ export default function AboutPage() {
                         </div>
 
                         <div className="about-subsection">
-                            <p className="about-panel__label">on my wishlist</p>
+                            <p className="about-panel__label">want to play</p>
+                            <p className="about-game-section__note">
+                                already in my library — waiting for the right moment.
+                            </p>
+
+                            {wantToPlayGames.length > 0 ? (
+                                <div className="about-tags about-tags--want-to-play">
+                                    {wantToPlayGames.map((game) => (
+                                        <span key={game}>{game}</span>
+                                    ))}
+                                </div>
+                            ) : (
+                                <p className="about-game-section__empty">
+                                    loading the next save file...
+                                </p>
+                            )}
+                        </div>
+
+                        <div className="about-subsection">
+                            <p className="about-panel__label">wishlist</p>
+                            <p className="about-game-section__note">
+                                games I do not own yet, but hope to play someday.
+                            </p>
 
                             <div className="about-tags about-tags--wishlist">
                                 {gameWishlist.map((game) => (
@@ -538,7 +598,7 @@ export default function AboutPage() {
                                 <span>PLAYLIST SIGNAL / 07</span>
 
                                 <a
-                                    className="retro-underline spotify-playlist-preview__open"
+                                    className="spotify-playlist-preview__open"
                                     href="https://open.spotify.com/playlist/3uBNKhJx8dcLKDhTQBmIJw?si=a19ae1a195fa413c"
                                     target="_blank"
                                     rel="noreferrer"
@@ -547,28 +607,19 @@ export default function AboutPage() {
                                 </a>
                             </div>
 
-                            <iframe
-                                className="spotify-playlist-preview__embed"
-                                src="https://open.spotify.com/embed/playlist/3uBNKhJx8dcLKDhTQBmIJw?utm_source=generator&theme=1"
-                                title="Navyri's The Marías and Not for Radio playlist"
-                                width="100%"
-                                height="152"
-                                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                                loading="lazy"
-                            />
+                            <SpotifyPlaylistEmbed />
                         </div>
 
-                        <p className="about-panel__label">current favorite artist</p>
-                        <p className="about-music-artist">Not for Radio</p>
-
-                        <a
-                            className="retro-underline about-section__link"
-                            href="https://open.spotify.com/user/mary_san2005?nd=1&dlsi=371d8bcd5b7e468c"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            open Navyri&apos;s Spotify profile
-                        </a>
+                        <div className="about-section__action">
+                            <a
+                                className="archive-action-link"
+                                href="https://open.spotify.com/user/mary_san2005?nd=1&dlsi=371d8bcd5b7e468c"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                open Navyri&apos;s Spotify profile <span aria-hidden="true">↗</span>
+                            </a>
+                        </div>
                     </div>
                 </section>
 
