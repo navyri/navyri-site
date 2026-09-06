@@ -107,20 +107,21 @@ export default function Home() {
             <div className="panel-body">
               <p>
                 Hi, I&apos;m <strong>Navyri</strong> — a Colombian VTuber,
-                self-taught illustrator, collector, and systems and computing engineering
-                student.
+                self-taught illustrator, collector, and systems and computing
+                engineering student.
               </p>
 
               <p>
-                I make anime and chibi-inspired art for creators and communities, love
-                building things with code and hardware, and keep a small personal archive
-                of games, collectibles, handmade projects, and everything that inspires me.
+                I make anime and chibi-inspired art for creators and communities,
+                love building things with code and hardware, and keep a small
+                personal archive of games, collectibles, handmade projects, and
+                everything that inspires me.
               </p>
 
               <p>
-                This site is my little corner of the internet: a place for commissions,
-                projects, collection updates, handmade creations, and things I enjoy
-                sharing.
+                This site is my little corner of the internet: a place for
+                commissions, projects, collection updates, handmade creations, and
+                things I enjoy sharing.
               </p>
 
               <p>
@@ -202,7 +203,7 @@ export default function Home() {
           </section>
         </div>
 
-        <aside className="home-sidebar">
+        <aside className="home-sidebar home-sidebar--right">
           <section className="content-panel socials-panel">
             <div className="panel-titlebar">
               <span>~ SOCIALS ~</span>
@@ -300,7 +301,6 @@ export default function Home() {
               <p>G4 My Little Pony</p>
               <p>G1 Monster High</p>
               <p>MLP trading cards</p>
-
             </div>
           </section>
 

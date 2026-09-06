@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+
+# Contact page work in progress
+src/app/contact/
+src/app/api/contact/
+src/components/contact/

@@ -328,32 +328,34 @@ export default function CommissionsPage() {
 
                 <div className="commissions-section__body">
                     <p className="commissions-section__lead">
-                        Available by request, ask for a quote and project details. Format,
-                        price, and delivery details are confirmed privately before work begins.
+                        Available for custom ideas that do not fit the standard service files.
+                        <br />
+                        Share your concept, references, preferred format, and intended platform to receive a quote.
                     </p>
 
                     <div className="commission-request-grid">
                         {customRequests.map((request, index) => (
-                            <article className="commission-request-card" key={request}>
-                                <span className="commission-request-card__code">
-                                    REQUEST FILE / {String(index + 7).padStart(2, "0")}
+                            <Link
+                                className="commission-request-card"
+                                href="/contact"
+                                key={request}
+                                aria-label={`Request a custom quote for ${request}`}
+                            >
+                                <span className="commission-request-card__topline">
+                                    <span className="commission-request-card__file">
+                                        FILE / {String(index + 7).padStart(2, "0")}
+                                    </span>
+
+                                    <span className="commission-request-card__status">
+                                        quote required <span aria-hidden="true">↗</span>
+                                    </span>
                                 </span>
 
-                                <div className="commission-request-card__body">
-                                    <span className="commission-request-card__mark">+</span>
-                                    <h2>{request}</h2>
-                                    <p>Available by request — ask for a quote and project details.</p>
-                                </div>
-
-                                <span className="commission-request-card__status">quote required</span>
-                            </article>
+                                <span className="commission-request-card__title">
+                                    {request}
+                                </span>
+                            </Link>
                         ))}
-                    </div>
-
-                    <div className="commission-request-grid__action">
-                        <Link className="archive-action-link" href="/contact">
-                            ask for a custom quote <span aria-hidden="true">↗</span>
-                        </Link>
                     </div>
                 </div>
             </section>
