@@ -742,8 +742,128 @@ a {
   text-align: right;
 }
 
-/* Mini panels */
+/* Home commission status */
 
+.commission-status-panel {
+  overflow: hidden;
+}
+
+.commission-status-panel .panel-titlebar {
+  background:
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--wine) 24%, transparent),
+      transparent 72%
+    ),
+    rgba(124, 38, 59, 0.16);
+}
+
+.commission-status-panel .mini-panel__body {
+  display: grid;
+  gap: 0;
+  padding: 0.9rem 0.86rem 0.84rem;
+}
+
+.commission-status-panel .status-open {
+  display: flex;
+  align-items: center;
+  gap: 0.46rem;
+  margin: 0 0 0.72rem !important;
+  padding: 0 0 0.64rem;
+  border-bottom: 1px dashed var(--line);
+  color: var(--status-open) !important;
+  font-size: clamp(1.16rem, 1.8vw, 1.42rem) !important;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-shadow: 0 0 0.55rem var(--status-open-shadow);
+}
+
+.commission-status-panel .status-open::before {
+  width: 0.42rem;
+  height: 0.42rem;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--status-active);
+  box-shadow: 0 0 0.48rem var(--status-open-shadow);
+  content: "";
+}
+
+.commission-status-panel__details {
+  display: grid;
+  gap: 0;
+  margin: 0;
+}
+
+.commission-status-panel__details div {
+  display: grid;
+  grid-template-columns: minmax(4.4rem, 0.82fr) minmax(0, 1.18fr);
+  gap: 0.55rem;
+  align-items: center;
+  padding: 0.42rem 0;
+  border-bottom: 1px dashed var(--line);
+}
+
+.commission-status-panel__details div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.commission-status-panel__details dt {
+  color: var(--rose);
+  font-size: 0.49rem;
+  font-weight: 800;
+  letter-spacing: 0.065em;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
+
+.commission-status-panel__details dd {
+  min-width: 0;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.63rem;
+  line-height: 1.45;
+  text-align: right;
+}
+
+.commission-status-panel__details a {
+  color: var(--rose);
+  font-weight: 700;
+  text-decoration: none;
+  transition: color 150ms ease;
+}
+
+.commission-status-panel__details a:hover,
+.commission-status-panel__details a:focus-visible {
+  color: var(--rose-light);
+  outline: none;
+}
+
+@media (max-width: 680px) {
+  .commission-status-panel .mini-panel__body {
+    padding: 0.84rem 0.8rem 0.8rem;
+  }
+
+  .commission-status-panel .status-open {
+    font-size: 1.12rem !important;
+  }
+
+  .commission-status-panel__details div {
+    grid-template-columns: minmax(4rem, 0.8fr) minmax(0, 1.2fr);
+    gap: 0.5rem;
+  }
+
+  .commission-status-panel__details dt {
+    font-size: 0.47rem;
+  }
+
+  .commission-status-panel__details dd {
+    font-size: 0.6rem;
+  }
+}
+
+/* Mini panels */
 .mini-panel__body {
   padding: 0.7rem 0.75rem 0.75rem;
 }
@@ -7347,5 +7467,126 @@ button.contact-calendar__day:disabled {
 
   .contact-sidebar {
     align-content: space-between;
+  }
+}
+
+/* Twitch live signal */
+
+.twitch-panel .mini-panel__body {
+  padding: 0.78rem 0.85rem 0.82rem;
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--wine) 16%, transparent),
+      transparent 72%
+    );
+}
+
+.twitch-status {
+  min-width: 0;
+}
+
+.twitch-status__link {
+  display: flex;
+  align-items: center;
+  gap: 0.72rem;
+  min-width: 0;
+  border-radius: 0.5rem;
+  color: inherit;
+  text-decoration: none;
+  transition:
+    background 160ms ease,
+    transform 160ms ease;
+}
+
+.twitch-status__link:hover,
+.twitch-status__link:focus-visible {
+  background: color-mix(in srgb, var(--wine) 15%, transparent);
+  outline: none;
+  transform: translateY(-1px);
+}
+
+.twitch-status__lamp {
+  width: 0.58rem;
+  height: 0.58rem;
+  flex: 0 0 auto;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--status-inactive);
+  box-shadow: none;
+}
+
+.twitch-status__lamp--live {
+  border-color: color-mix(in srgb, var(--status-active) 72%, var(--border));
+  background: var(--status-active);
+  box-shadow: 0 0 0 0.24rem var(--status-open-shadow);
+}
+
+.twitch-status__copy {
+  display: grid;
+  min-width: 0;
+  gap: 0.28rem;
+}
+
+.twitch-status__state {
+  color: var(--spotify-status-text);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.twitch-status--live .twitch-status__state {
+  color: var(--status-active);
+}
+
+.twitch-status__title,
+.twitch-status__meta {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.twitch-status__title {
+  color: var(--spotify-track-text);
+  font-size: 0.78rem;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.twitch-status__meta {
+  color: var(--spotify-meta-text);
+  font-size: 0.64rem;
+  line-height: 1.35;
+}
+
+@media (max-width: 680px) {
+  .twitch-panel .mini-panel__body {
+    padding: 0.76rem 0.82rem 0.8rem;
+  }
+
+  .twitch-status__link {
+    gap: 0.65rem;
+  }
+
+  .twitch-status__title {
+    font-size: 0.74rem;
+  }
+
+  .twitch-status__meta {
+    font-size: 0.61rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .twitch-status__link {
+    transition: none;
+  }
+
+  .twitch-status__link:hover,
+  .twitch-status__link:focus-visible {
+    transform: none;
   }
 }

@@ -1,5 +1,6 @@
 import Image from "next/image";
-import NowPlaying from "@/components/NowPlaying";
+import NowPlaying from "@/components/widgets/NowPlaying";
+import TwitchStatus from "@/components/widgets/TwitchStatus";
 
 export default function Home() {
   return (
@@ -62,21 +63,25 @@ export default function Home() {
                 </div>
 
                 <div>
-                  <dt>commissions</dt>
-                  <dd className="profile-panel__open">Open</dd>
+                  <dt>timezone</dt>
+                  <dd className="profile-panel__active">UTC−5</dd>
+                </div>
+
+                <div>
+                  <dt>languages</dt>
+                  <dd className="profile-panel__active">ESP / ENG</dd>
                 </div>
               </dl>
             </div>
           </section>
 
-          <section className="content-panel mini-panel">
+          <section className="content-panel mini-panel twitch-panel">
             <div className="panel-titlebar">
-              <span>~ FAVORITE FOOD ~</span>
+              <span>~ TWITCH / LIVE SIGNAL ~</span>
             </div>
 
             <div className="mini-panel__body">
-              <p className="mini-panel__highlight">Italian food</p>
-              <p>Pasta · pizza · tiramisù</p>
+              <TwitchStatus />
             </div>
           </section>
 
@@ -275,7 +280,7 @@ export default function Home() {
 
               <a href="/contact">
                 Contact
-                <span>email form</span>
+                <span>contact form</span>
               </a>
             </div>
           </section>
@@ -287,8 +292,23 @@ export default function Home() {
 
             <div className="mini-panel__body">
               <p className="status-open">OPEN</p>
-              <p>Starting from $12 USD</p>
-              <p>International / digital</p>
+
+              <dl className="commission-status-panel__details">
+                <div>
+                  <dt>payments</dt>
+                  <dd>USD / COP</dd>
+                </div>
+
+                <div>
+                  <dt>delivery</dt>
+                  <dd>digital / worldwide</dd>
+                </div>
+
+                <div>
+                  <dt>Process</dt>
+                  <dd>sketch → color → final</dd>
+                </div>
+              </dl>
             </div>
           </section>
 
@@ -311,15 +331,6 @@ export default function Home() {
 
             <div className="mini-panel__body">
               <NowPlaying />
-
-              <a
-                className="mini-panel__link"
-                href="https://open.spotify.com/user/mary_san2005?nd=1&dlsi=371d8bcd5b7e468c"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Open Spotify profile
-              </a>
             </div>
           </section>
         </aside>

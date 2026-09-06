@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import NowPlaying from "@/components/NowPlaying";
-import SpotifyPlaylistEmbed from "@/components/SpotifyPlaylistEmbed";
+import NowPlaying from "@/components/widgets/NowPlaying";
+import SpotifyPlaylistEmbed from "@/components/widgets/SpotifyPlaylistEmbed";
 
 const favoriteGames = [
     "Fatal Frame",
