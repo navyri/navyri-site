@@ -434,7 +434,7 @@ a {
 .theme-switch__thumb {
   position: absolute;
   top: 0.18rem;
-  left: 0.18rem;
+  left: 0.27rem;
   z-index: 1;
   width: 1.96rem;
   height: 1.96rem;
@@ -451,17 +451,17 @@ a {
 }
 
 .theme-switch__thumb--dark {
-  transform: translateX(2.66rem);
+  transform: translateX(2.48rem);
 }
 
 .theme-switch__thumb--light {
   transform: translateX(0);
 }
 
-.theme-switch__track--dark .theme-switch__moon {
-  color: var(--rose-light);
+.theme-switch__track--light .theme-switch__sun {
+  color: var(--wine);
   opacity: 1;
-  text-shadow: 0 0 0.5rem rgba(255, 241, 244, 0.65);
+  text-shadow: 0 0 0.45rem rgba(124, 38, 59, 0.28);
   transform: scale(1.08);
 }
 
@@ -1516,12 +1516,11 @@ a {
   }
 
   .theme-switch__thumb {
-    width: 1.76rem;
-    height: 1.76rem;
+    left: 0.26rem;
   }
 
   .theme-switch__thumb--dark {
-    transform: translateX(2.38rem);
+    transform: translateX(2.27rem);
   }
 }
 
