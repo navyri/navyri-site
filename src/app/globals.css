@@ -750,11 +750,9 @@ a {
 
 .commission-status-panel .panel-titlebar {
   background:
-    linear-gradient(
-      90deg,
+    linear-gradient(90deg,
       color-mix(in srgb, var(--wine) 24%, transparent),
-      transparent 72%
-    ),
+      transparent 72%),
     rgba(124, 38, 59, 0.16);
 }
 
@@ -5764,7 +5762,7 @@ a {
 }
 
 .portfolio-directory-note__action,
-.portfolio-folder-page__footer > a,
+.portfolio-folder-page__footer>a,
 .home-introduction__link {
   flex: 0 0 auto;
   padding-bottom: 0.12rem;
@@ -5783,14 +5781,15 @@ a {
 
 .portfolio-directory-note__action:hover,
 .portfolio-directory-note__action:focus-visible,
-.portfolio-folder-page__footer > a:hover,
-.portfolio-folder-page__footer > a:focus-visible,
+.portfolio-folder-page__footer>a:hover,
+.portfolio-folder-page__footer>a:focus-visible,
 .home-introduction__link:hover,
 .home-introduction__link:focus-visible {
   border-color: var(--rose-light);
   color: var(--rose-light);
   outline: none;
 }
+
 /* RESPONSIVE */
 @media (max-width: 920px) {
   .portfolio-record-grid {
@@ -7473,26 +7472,25 @@ button.contact-calendar__day:disabled {
 }
 
 /* Twitch live signal */
-
 .twitch-panel .mini-panel__body {
-  padding: 0.78rem 0.85rem 0.82rem;
+  padding: 0;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       color-mix(in srgb, var(--wine) 16%, transparent),
-      transparent 72%
-    );
+      transparent 72%);
 }
 
 .twitch-status {
   min-width: 0;
+  padding: 1.2rem 1.1rem 1.25rem;
 }
 
 .twitch-status__link {
   display: flex;
   align-items: center;
-  gap: 0.72rem;
+  gap: 0.82rem;
   min-width: 0;
+  padding: 0.16rem;
   border-radius: 0.5rem;
   color: inherit;
   text-decoration: none;
@@ -7509,8 +7507,8 @@ button.contact-calendar__day:disabled {
 }
 
 .twitch-status__lamp {
-  width: 0.58rem;
-  height: 0.58rem;
+  width: 0.62rem;
+  height: 0.62rem;
   flex: 0 0 auto;
   border: 1px solid var(--border);
   border-radius: 50%;
@@ -7527,12 +7525,12 @@ button.contact-calendar__day:disabled {
 .twitch-status__copy {
   display: grid;
   min-width: 0;
-  gap: 0.28rem;
+  gap: 0.34rem;
 }
 
 .twitch-status__state {
   color: var(--spotify-status-text);
-  font-size: 0.62rem;
+  font-size: 0.64rem;
   font-weight: 800;
   letter-spacing: 0.1em;
   line-height: 1;
@@ -7546,43 +7544,80 @@ button.contact-calendar__day:disabled {
 .twitch-status__title,
 .twitch-status__meta {
   display: block;
+  min-width: 0;
   overflow: hidden;
-  text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.twitch-status__title>span,
+.twitch-status__meta>span {
+  display: inline-block;
+  min-width: max-content;
 }
 
 .twitch-status__title {
   color: var(--spotify-track-text);
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 800;
   line-height: 1.35;
 }
 
 .twitch-status__meta {
   color: var(--spotify-meta-text);
-  font-size: 0.64rem;
-  line-height: 1.35;
+  font-size: 0.67rem;
+  line-height: 1.4;
+}
+
+.twitch-status__link:hover .twitch-status__title>span,
+.twitch-status__link:focus-visible .twitch-status__title>span,
+.twitch-status__link:hover .twitch-status__meta>span,
+.twitch-status__link:focus-visible .twitch-status__meta>span {
+  animation: twitch-status-scroll 6.5s ease-in-out 500ms 1 both;
+}
+
+@keyframes twitch-status-scroll {
+
+  0%,
+  16% {
+    transform: translateX(0);
+  }
+
+  72%,
+  84% {
+    transform: translateX(var(--twitch-scroll-distance, -3.5rem));
+  }
+
+  100% {
+    transform: translateX(0);
+  }
 }
 
 @media (max-width: 680px) {
-  .twitch-panel .mini-panel__body {
-    padding: 0.76rem 0.82rem 0.8rem;
+  .twitch-status {
+    padding: 1rem 0.9rem 1.05rem;
   }
 
   .twitch-status__link {
-    gap: 0.65rem;
+    gap: 0.72rem;
   }
 
   .twitch-status__title {
-    font-size: 0.74rem;
+    font-size: 0.78rem;
   }
 
   .twitch-status__meta {
-    font-size: 0.61rem;
+    font-size: 0.64rem;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
+
+  .twitch-status__title>span,
+  .twitch-status__meta>span {
+    animation: none !important;
+    transform: none !important;
+  }
+
   .twitch-status__link {
     transition: none;
   }
@@ -7590,5 +7625,83 @@ button.contact-calendar__day:disabled {
   .twitch-status__link:hover,
   .twitch-status__link:focus-visible {
     transform: none;
+  }
+}
+
+/* Visitor counter */
+
+.visitor-panel .mini-panel__body {
+  display: grid;
+  min-height: 0;
+  padding: 1rem 0.7rem;
+  place-items: center;
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--wine) 16%, transparent),
+      transparent 72%);
+}
+
+.visitor-counter__value {
+  display: block;
+  color: var(--spotify-track-text);
+  font-family: var(--font-mono,
+      ui-monospace,
+      SFMono-Regular,
+      Menlo,
+      Monaco,
+      Consolas,
+      monospace);
+  font-size: clamp(1.25rem, 2.2vw, 1.6rem);
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  line-height: 1;
+  text-align: center;
+  text-shadow: 0 0 1rem color-mix(in srgb, var(--rose) 26%, transparent);
+}
+
+/* Spotify text scroll on hover */
+
+.now-playing-panel__track,
+.now-playing-panel__meta {
+  display: block;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.now-playing-panel__track > span,
+.now-playing-panel__meta > span {
+  display: inline-block;
+  min-width: max-content;
+}
+
+.spotify-panel:hover .now-playing-panel__track > span[data-overflows="true"],
+.spotify-panel:focus-within .now-playing-panel__track > span[data-overflows="true"],
+.spotify-panel:hover .now-playing-panel__meta > span[data-overflows="true"],
+.spotify-panel:focus-within .now-playing-panel__meta > span[data-overflows="true"] {
+  animation: spotify-status-scroll 6.5s ease-in-out 500ms 1 both;
+}
+
+@keyframes spotify-status-scroll {
+  0%,
+  16% {
+    transform: translateX(0);
+  }
+
+  72%,
+  84% {
+    transform: translateX(var(--spotify-scroll-distance, 0px));
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .now-playing-panel__track > span,
+  .now-playing-panel__meta > span {
+    animation: none !important;
+    transform: none !important;
   }
 }

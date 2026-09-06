@@ -59,18 +59,23 @@ export default function Home() {
                 </div>
 
                 <div>
+                  <dt>collector focus</dt>
+                  <dd>MLP G4 / MH G1</dd>
+                </div>
+
+                <div>
                   <dt>role</dt>
                   <dd>VTuber / Artist</dd>
                 </div>
 
                 <div>
-                  <dt>timezone</dt>
-                  <dd className="profile-panel__active">UTC−5</dd>
+                  <dt>languages</dt>
+                  <dd className="profile-panel__active">ESP / ENG</dd>
                 </div>
 
                 <div>
-                  <dt>languages</dt>
-                  <dd className="profile-panel__active">ESP / ENG</dd>
+                  <dt>timezone</dt>
+                  <dd className="profile-panel__active">UTC−5</dd>
                 </div>
               </dl>
             </div>
@@ -121,12 +126,14 @@ export default function Home() {
                 it rather than limiting myself to one fixed style.
               </p>
               <p>
-                Outside of art, I love technology, programming, hardware, video editing,
-                and making things with my own hands.
+                Outside of art, I love <strong>technology</strong>, <strong>programming</strong>,
+                <strong>hardware</strong>, <strong>video editing</strong>, and making things with my own hands.
               </p>
               <p>
-                I&apos;m also a collector at heart. My collection began with the toys I
-                grew up with and carefully kept over the years
+                I&apos;m also a collector at heart. My collection began with the toys I grew
+                up with and carefully kept over the years, and has grown into a personal
+                archive of Generation 4 My Little Pony, Generation 1 Monster High and My
+                Little Pony trading cards.
               </p>
               <p>
                 This site is my little corner of the internet: a place for commissions,
@@ -205,6 +212,21 @@ export default function Home() {
         </div>
 
         <aside className="home-sidebar home-sidebar--right">
+          <section className="content-panel mini-panel visitor-panel">
+            <div className="panel-titlebar">
+              <span>~ VISITS RECORDED ~</span>
+            </div>
+
+            <div className="mini-panel__body">
+              <output
+                className="visitor-counter__value"
+                aria-label="Total site visits"
+              >
+                000,000
+              </output>
+            </div>
+          </section>
+
           <section className="content-panel socials-panel">
             <div className="panel-titlebar">
               <span>~ SOCIALS ~</span>
@@ -299,11 +321,6 @@ export default function Home() {
                   <dt>delivery</dt>
                   <dd>digital / worldwide</dd>
                 </div>
-
-                <div>
-                  <dt>Process</dt>
-                  <dd>sketch → color → final</dd>
-                </div>
               </dl>
             </div>
           </section>
@@ -314,9 +331,7 @@ export default function Home() {
             </div>
 
             <div className="mini-panel__body">
-              <p>G4 My Little Pony</p>
-              <p>G1 Monster High</p>
-              <p>MLP trading cards</p>
+              <p>G4 My Little Pony · G1 Monster High · MLP trading cards</p>
             </div>
           </section>
 

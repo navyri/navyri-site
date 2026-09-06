@@ -87,28 +87,36 @@ export default function TwitchStatus() {
                     {isLive ? (
                         <>
                             <span className="twitch-status__title">
-                                {status.title || "Live transmission active"}
+                                <span>
+                                    {status.title || "Live transmission active"}
+                                </span>
                             </span>
 
                             <span className="twitch-status__meta">
-                                {status.gameName || "Twitch stream"}
-                                {typeof status.viewerCount === "number"
-                                    ? ` · ${status.viewerCount} watching`
-                                    : ""}
+                                <span>
+                                    {status.gameName || "Twitch stream"}
+                                    {typeof status.viewerCount === "number"
+                                        ? ` · ${status.viewerCount} watching`
+                                        : ""}
+                                </span>
                             </span>
                         </>
                     ) : (
                         <>
                             <span className="twitch-status__title">
-                                {unavailable
-                                    ? "Signal temporarily unavailable"
-                                    : "No active transmission detected"}
+                                <span>
+                                    {unavailable
+                                        ? "Signal temporarily unavailable"
+                                        : "No active transmission detected"}
+                                </span>
                             </span>
 
                             <span className="twitch-status__meta">
-                                {unavailable
-                                    ? "Try again in a moment."
-                                    : "Follow @navyri for the next stream."}
+                                <span>
+                                    {unavailable
+                                        ? "Try again in a moment."
+                                        : "Follow @navyri for the next stream."}
+                                </span>
                             </span>
                         </>
                     )}

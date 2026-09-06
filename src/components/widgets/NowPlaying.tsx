@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type NowPlayingData = {
     isPlaying: boolean;
@@ -27,6 +27,9 @@ export default function NowPlaying() {
     const [track, setTrack] = useState<NowPlayingData>(EMPTY_TRACK);
     const [isLoading, setIsLoading] = useState(true);
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
+    const trackTitleRef = useRef<HTMLSpanElement>(null);
+    const artistTextRef = useRef<HTMLSpanElement>(null);
 
     useEffect(() => {
         let active = true;
@@ -82,7 +85,7 @@ export default function NowPlaying() {
     }, []);
 
     const isOffline = !isLoading && !errorMessage && !track.isTrack;
-    const hasTrack = track.isTrack && !errorMessage; 
+    const hasTrack = track.isTrack && !errorMessage;
 
     const statusText = isLoading
         ? "checking signal..."
@@ -109,6 +112,41 @@ export default function NowPlaying() {
             : hasTrack
                 ? `${track.artist}${track.album ? ` · ${track.album}` : ""}`
                 : "The next track will appear here";
+
+    useEffect(() => {
+        function updateScrollDistance() {
+            const textElements = [trackTitleRef.current, artistTextRef.current];
+
+            textElements.forEach((textElement) => {
+                const container = textElement?.parentElement;
+
+                if (!textElement || !container) {
+                    return;
+                }
+
+                const distance = Math.max(
+                    0,
+                    Math.ceil(textElement.scrollWidth - container.clientWidth)
+                );
+
+                textElement.style.setProperty(
+                    "--spotify-scroll-distance",
+                    `-${distance}px`
+                );
+
+                textElement.dataset.overflows = distance > 0 ? "true" : "false";
+            });
+        }
+
+        const frameId = window.requestAnimationFrame(updateScrollDistance);
+
+        window.addEventListener("resize", updateScrollDistance);
+
+        return () => {
+            window.cancelAnimationFrame(frameId);
+            window.removeEventListener("resize", updateScrollDistance);
+        };
+    }, [trackTitle, artistText]);
 
     const player = (
         <div
@@ -140,17 +178,21 @@ export default function NowPlaying() {
                 <span className="now-playing-panel__status">
                     <span
                         className={`now-playing-panel__dot ${track.isPlaying && !errorMessage
-                            ? "now-playing-panel__dot--active"
-                            : ""
+                                ? "now-playing-panel__dot--active"
+                                : ""
                             }`}
                         aria-hidden="true"
                     />
                     {statusText}
                 </span>
 
-                <p className="now-playing-panel__track">{trackTitle}</p>
+                <p className="now-playing-panel__track">
+                    <span ref={trackTitleRef}>{trackTitle}</span>
+                </p>
 
-                <span className="now-playing-panel__meta">{artistText}</span>
+                <span className="now-playing-panel__meta">
+                    <span ref={artistTextRef}>{artistText}</span>
+                </span>
             </div>
         </div>
     );

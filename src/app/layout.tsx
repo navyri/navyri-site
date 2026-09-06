@@ -1,6 +1,7 @@
 import Image from "next/image";
 import type { Metadata } from "next";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import SiteNavigation from "@/components/SiteNavigation";
 import SitePreferences from "@/components/SitePreferences";
 
@@ -52,7 +53,10 @@ export default function RootLayout({
 
             <footer className="site-footer">
               <div className="site-footer__identity">
-                <span className="site-footer__title">NAVYRI&apos;S PERSONAL ARCHIVE </span>
+                <span className="site-footer__title">
+                  NAVYRI&apos;S PERSONAL ARCHIVE
+                </span>
+
                 <span className="site-footer__subtitle">
                   · keep creating, keep collecting
                 </span>
@@ -65,6 +69,8 @@ export default function RootLayout({
             </footer>
           </div>
         </div>
+
+        <Analytics />
       </body>
     </html>
   );
