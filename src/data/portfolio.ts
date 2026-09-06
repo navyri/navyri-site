@@ -252,9 +252,9 @@ export const portfolioRecords: PortfolioRecord[] = [
     month: 12,
     order: 1,
     type: "ANIMATED EMOTE",
-    title: "Animated emote for @fxckology",
+    title: "Animated emote for @SakiSharkBait",
     client: {
-      label: "@fxckology",
+      label: "@SakiSharkBait",
       platform: "X (Twitter)",
       url: "https://x.com/SakiSharkBait",
     },
@@ -263,7 +263,7 @@ export const portfolioRecords: PortfolioRecord[] = [
       dark: "/images/portfolio/emotes/animated/animated-emote-fxckology-dark-2024-12-01.gif",
       light:
         "/images/portfolio/emotes/animated/animated-emote-fxckology-light-2024-12-01.gif",
-      alt: "Animated emote commission for @fxckology completed in December 2024",
+      alt: "Animated emote commission for @SakiSharkBait completed in December 2024",
     },
   },
   {
