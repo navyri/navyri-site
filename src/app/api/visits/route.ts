@@ -4,7 +4,12 @@ export const runtime = "nodejs";
 export const revalidate = 300;
 
 type VercelVisitsResponse = {
-    data?: number;
+    data?: {
+        pageViews?: number;
+        pageviews?: number;
+        count?: number;
+        visitors?: number;
+    };
 };
 
 export async function GET() {
@@ -19,10 +24,13 @@ export async function GET() {
     }
 
     try {
+        const query = new URLSearchParams({
+            projectId,
+            event: "pageview",
+        });
+
         const response = await fetch(
-            `https://api.vercel.com/v1/query/web-analytics/visits/count?projectId=${encodeURIComponent(
-                projectId
-            )}`,
+            `https://api.vercel.com/v1/query/web-analytics/visits/count?${query.toString()}`,
             {
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -34,15 +42,25 @@ export async function GET() {
         );
 
         if (!response.ok) {
-            throw new Error(`Vercel Analytics returned ${response.status}.`);
+            const details = await response.text();
+
+            throw new Error(
+                `Vercel Analytics returned ${response.status}: ${details}`
+            );
         }
 
-        const data = (await response.json()) as VercelVisitsResponse;
+        const result = (await response.json()) as VercelVisitsResponse;
+
+        console.log("Vercel Analytics page-view response:", result);
+
+        const pageViews =
+            result.data?.pageViews ??
+            result.data?.pageviews ??
+            result.data?.count ??
+            0;
 
         return NextResponse.json(
-            {
-                visits: typeof data.data === "number" ? data.data : 0,
-            },
+            { visits: pageViews },
             {
                 headers: {
                     "Cache-Control": "s-maxage=300, stale-while-revalidate=600",
@@ -50,7 +68,7 @@ export async function GET() {
             }
         );
     } catch (error) {
-        console.error("Could not fetch Vercel visit count:", error);
+        console.error("Could not fetch Vercel page-view count:", error);
 
         return NextResponse.json(
             { visits: null, error: "Visitor counter unavailable." },
