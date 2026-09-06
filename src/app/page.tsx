@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import NowPlaying from "@/components/widgets/NowPlaying";
 import TwitchStatus from "@/components/widgets/TwitchStatus";
+import VisitorCounter from "@/components/widgets/VisitorCounter";
 
 export default function Home() {
   return (
@@ -218,12 +219,7 @@ export default function Home() {
             </div>
 
             <div className="mini-panel__body">
-              <output
-                className="visitor-counter__value"
-                aria-label="Total site visits"
-              >
-                000,000
-              </output>
+              <VisitorCounter />
             </div>
           </section>
 
