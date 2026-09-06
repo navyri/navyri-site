@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import NowPlaying from "@/components/widgets/NowPlaying";
 import TwitchStatus from "@/components/widgets/TwitchStatus";
@@ -101,7 +102,7 @@ export default function Home() {
           <section className="content-panel home-introduction">
             <div className="introduction-heading">
               <p className="introduction-heading__update">
-                last update: august 2026
+                last update: september 2026
               </p>
 
               <h1 className="introduction-heading__title">
@@ -111,40 +112,35 @@ export default function Home() {
 
             <div className="panel-body">
               <p>
-                Hi, I&apos;m <strong>Navyri</strong> — a Colombian VTuber,
-                self-taught illustrator, collector, and systems and computing
-                engineering student.
+                Hi, I&apos;m <strong>Navyri</strong>! a Colombian VTuber, self-taught
+                illustrator, collector, and systems and computing engineering student.
               </p>
-
               <p>
-                I make anime and chibi-inspired art for creators and communities,
-                love building things with code and hardware, and keep a small
-                personal archive of games, collectibles, handmade projects, and
-                everything that inspires me.
+                I&apos;ve been drawing for as long as I can remember, and I enjoy learning,
+                experimenting, and adapting each piece to the person, idea, or story behind
+                it rather than limiting myself to one fixed style.
               </p>
-
               <p>
-                This site is my little corner of the internet: a place for
-                commissions, projects, collection updates, handmade creations, and
-                things I enjoy sharing.
+                Outside of art, I love technology, programming, hardware, video editing,
+                and making things with my own hands.
               </p>
-
               <p>
-                Want to know more? Visit my{" "}
-                <a className="mini-panel__link" href="/about">
-                  personal archive / about page
-                </a>
-                .
+                I&apos;m also a collector at heart. My collection began with the toys I
+                grew up with and carefully kept over the years
+              </p>
+              <p>
+                This site is my little corner of the internet: a place for commissions,
+                projects, collection updates, handmade creations and everything I enjoy
+                sharing.{" "}
+                <Link className="home-introduction__link" href="/about">
+                  Visit my personal archive →
+                </Link>
               </p>
             </div>
           </section>
 
           <section className="content-panel tech-panel">
             <div className="introduction-heading">
-              <p className="introduction-heading__update">
-                last update: august 2026
-              </p>
-
               <h2 className="introduction-heading__title">
                 ~ technology stack ~
               </h2>

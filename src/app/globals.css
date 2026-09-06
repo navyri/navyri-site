@@ -5764,7 +5764,8 @@ a {
 }
 
 .portfolio-directory-note__action,
-.portfolio-folder-page__footer>a {
+.portfolio-folder-page__footer > a,
+.home-introduction__link {
   flex: 0 0 auto;
   padding-bottom: 0.12rem;
   border-bottom: 1px dashed var(--border);
@@ -5782,13 +5783,14 @@ a {
 
 .portfolio-directory-note__action:hover,
 .portfolio-directory-note__action:focus-visible,
-.portfolio-folder-page__footer>a:hover,
-.portfolio-folder-page__footer>a:focus-visible {
+.portfolio-folder-page__footer > a:hover,
+.portfolio-folder-page__footer > a:focus-visible,
+.home-introduction__link:hover,
+.home-introduction__link:focus-visible {
   border-color: var(--rose-light);
   color: var(--rose-light);
   outline: none;
 }
-
 /* RESPONSIVE */
 @media (max-width: 920px) {
   .portfolio-record-grid {
