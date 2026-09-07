@@ -119,27 +119,27 @@ export default function Home() {
             <div className="panel-body">
               <p>
                 Hi, I&apos;m <strong>Navyri</strong>! a Colombian VTuber, self-taught
-                illustrator, collector, and systems and computing engineering student.
+                illustrator, collector and systems and computing engineering student.
               </p>
               <p>
-                I&apos;ve been drawing for as long as I can remember, and I enjoy learning,
-                experimenting, and adapting each piece to the person, idea, or story behind
+                I&apos;ve been drawing for as long as I can remember and I enjoy learning,
+                experimenting and adapting each piece to the person, idea, or story behind
                 it rather than limiting myself to one fixed style.
               </p>
               <p>
                 Outside of art, I love <strong>technology</strong>, <strong>programming</strong>,
-                <strong>hardware</strong>, <strong>video editing</strong>, and making things with my own hands.
+                <strong> hardware</strong>, <strong>video editing</strong> and <strong>making things with my own hands</strong>.
               </p>
               <p>
                 I&apos;m also a collector at heart. My collection began with the toys I grew
-                up with and carefully kept over the years, and has grown into a personal
+                up with and carefully kept over the years and has grown into a personal
                 archive of Generation 4 My Little Pony, Generation 1 Monster High and My
                 Little Pony trading cards.
               </p>
               <p>
-                This site is my little corner of the internet: a place for commissions,
-                projects, collection updates, handmade creations and everything I enjoy
-                sharing.{" "}
+                This site is my little corner of the internet: a place for <strong>commissions</strong>,
+                <strong> projects</strong>, <strong>collection updates</strong>, <strong>handmade creations </strong> 
+                and everything I enjoy sharing.{" "}
                 <Link className="home-introduction__link" href="/about">
                   Visit my personal archive →
                 </Link>
@@ -193,10 +193,11 @@ export default function Home() {
                   <span>Notion</span>
                   <span>Adobe Premiere Pro</span>
                   <span>Photoshop</span>
+                  <span>OBS</span>
                 </div>
               </div>
 
-              <div className="tech-group">
+              <div className="tech-group">OUTGOING 
                 <h3>cloud &amp; infrastructure</h3>
 
                 <div className="tech-tags">

@@ -670,7 +670,7 @@ export default function AboutPage() {
                     <span>directory / stay in touch</span>
                 </div>
 
-                <div className="about-links-panel__intro">
+                <div className="about-section__body about-links-panel__intro">
                     <span>OUTGOING SIGNALS</span>
                     <p>creator spaces, community links, archives, and support channels.</p>
                 </div>
